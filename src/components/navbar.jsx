@@ -13,6 +13,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import Link from 'next/link';
 
 const drawerWidth = 240;
 const navItems = ['Popular', 'Latest', 'Trending'];
@@ -66,11 +67,16 @@ function Navbar(props) {
             onlyMovies
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-            {navItems.map((item) => (
-              <Button key={item} sx={{ color: '#fff' }}>
-                {item}
+              <Button  sx={{ color: '#fff' }}>
+                <Link href={"/trending"}>
+                  Trending
+                </Link>
               </Button>
-            ))}
+              <Button  sx={{ color: '#fff' }}>
+                <Link href={"/tv"}>
+                  TV Shows
+                </Link>
+              </Button>
           </Box>
         </Toolbar>
       </AppBar>

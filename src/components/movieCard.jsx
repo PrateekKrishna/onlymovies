@@ -6,8 +6,8 @@ import Typography from "@mui/material/Typography";
 import { Button, CardActionArea, CardActions } from "@mui/material";
 
 export default function MultiActionAreaCard(props) {
-  var date = props.release;
-  date = date.split("-").reverse().join("-");
+  // var date = props.release;
+  // date = date.split("-").reverse().join("-");
   return (
     <Card sx={{ maxWidth: 345, m: 0.5, mt: 5 }}>
       <CardActionArea>
@@ -24,7 +24,7 @@ export default function MultiActionAreaCard(props) {
             {props.title}
           </Typography>
           <Typography gutterBottom variant="h7" component="div">
-            Release Date: {date}
+            Release Date: {props.release}
           </Typography>
           <Typography gutterBottom variant="h7" component="div">
             Rating: {props.rating}
