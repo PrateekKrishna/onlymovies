@@ -14,6 +14,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Link from 'next/link';
+import Router from 'next/router';
 
 const drawerWidth = 240;
 const navItems = ['Popular', 'Latest', 'Trending'];
@@ -33,13 +34,20 @@ function Navbar(props) {
       </Typography>
       <Divider />
       <List>
-        {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: 'center' }}>
-              <ListItemText primary={item} />
-            </ListItemButton>
+          <ListItem disablePadding>
+            <Link href={"/trending"}>
+              <ListItemButton sx={{ textAlign: 'center' }}>
+                <ListItemText primary="Trending" />
+              </ListItemButton>
+            </Link>
           </ListItem>
-        ))}
+          <ListItem disablePadding>
+            <Link href={"/tv"}>
+              <ListItemButton sx={{ textAlign: 'center' }}>
+                <ListItemText primary="TV Shows" />
+              </ListItemButton>
+            </Link>
+          </ListItem>
       </List>
     </Box>
   );
@@ -64,7 +72,9 @@ function Navbar(props) {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
           >
-            onlyMovies
+            <Link href='/'>
+                onlyMovies
+            </Link>
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
               <Button  sx={{ color: '#fff' }}>

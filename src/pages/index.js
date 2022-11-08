@@ -1,35 +1,71 @@
-import { Box, Paper } from '@mui/material'
-import Head from 'next/head'
-import Image from 'next/image'
-import MultiActionAreaCard from '../components/movieCard'
-import styles from '../styles/Home.module.css'
-import axios from 'axios';
-import { useEffect, useState } from 'react'
-import Navbar from '../components/navbar'
-import SimplePaper from '../components/paper'
-import Buttons from '../components/button'
+import { Box, Button, Paper } from "@mui/material";
+import Head from "next/head";
+import Image from "next/image";
+import MultiActionAreaCard from "../components/movieCard";
+import styles from "../styles/Home.module.css";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import Navbar from "../components/navbar";
+import next from "next";
 
 export default function Home() {
 
-  const pic = "/twilight.jpeg"
-  const title = "Twilight"
-  var about = "This is a movie"
-
+  //useState Hooks
   var [movies, setMovies] = useState([]);
+  var [ind, setInd] = useState(1);
+  var [title, setTitle] = useState("");
+  var [click, isClicked] = useState(false)
 
+  //axios
   async function getHandle() {
     try {
-      const response = await axios.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=34a470327cec0df094785c27a8b66230&language=en-US&page=1`);
+      const response = await axios.get(
+        `https://api.themoviedb.org/3/movie/top_rated?api_key=34a470327cec0df094785c27a8b66230&language=en-US&page=${ind}`
+      );
+      console.log(response.data.results);
       setMovies(response.data.results);
-      console.log(response);
     } catch (error) {
       console.log(error.response.status);
     }
   }
 
+  async function searchMovie() {
+    try {
+      const searchRes = await axios.get(
+        `https://api.themoviedb.org/3/search/movie?api_key=34a470327cec0df094785c27a8b66230&language=en-US&query=${title}&include_adult=false`
+      );
+      setMovies(searchRes.data.results);
+    } catch (error) {
+      console.log(error.searchRes);
+    }
+  }
+
+  //functions
+  function handleNext() {
+    console.log(next);
+    setInd(ind + 1);
+  }
+  function handlePrev() {
+    setInd(ind > 1 ? ind - 1 : ind);
+  }
+
+  function handleChange(e){
+    console.log(e.target.value);
+    setTitle(e.target.value);
+  }
+  function handleClick(e){
+    e.preventDefault();
+    searchMovie();
+  }
+
+
+  //useeffect hook
   useEffect(() => {
-    getHandle();
-  }, []);
+      getHandle();
+  }, [ind]);
+  
+
+  
 
   return (
     <div className={styles.container}>
@@ -39,35 +75,64 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />
-      <SimplePaper />
-      <Box sx={{ display: "flex", flexWrap: 'wrap', justifyContent: 'space-evenly' }}>
+      <Box
+        sx={{
+          height: "20vh",
+          width: "100%",
+          backgroundColor: "pink",
+          backgroundImage: `url(./background.jpg)`,
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        <form>
+          <input onChange = {(e) => handleChange(e)} placeholder = "search movies..." style={{height: "25%", marginTop: "70px", width: "30vw", borderRadius: "20px", alignItems: "center"}} />
+          <Button onClick={(e)=>{handleClick(e)}} variant="contained" sx={{height: "25%", borderRadius: "20px", ml: "15px", }}>
+            Search
+          </Button>
+        </form>
+      </Box>
+      <Box
+        sx={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "space-evenly",
+        }}
+      >
         {
-          movies.map((items, index)=>{
-            return(
-              <MultiActionAreaCard key = {index} title = {items.title} about = {items.overview} pic = {items.poster_path} release = {items.release_date
-              }
-                rating = {items.vote_average}
-              />
-            );
-          })
+          
         }
+        {movies.map((items, index) => {
+          return (
+            <MultiActionAreaCard
+              key={index}
+              title={items.title}
+              about={items.overview}
+              pic={items.poster_path}
+              release={items.release_date}
+              rating={items.vote_average}
+            />
+          );
+        })}
       </Box>
 
       <Box
-      sx={{
-        display: 'flex',
-        flexWrap: 'wrap',
-        height: 150,
-        width: "100%",
-        backgroundImage: `url(./background.jpg)`,
-        justifyContent: "center"
-      }}
+        sx={{
+          display: "flex",
+          flexWrap: "wrap",
+          height: 150,
+          width: "100%",
+          backgroundImage: `url(./background.jpg)`,
+          justifyContent: "center",
+        }}
       >
-        <Buttons text={"Next"}/>
-        <Buttons text={"Previous"}/>
+        <Button onClick={handlePrev} variant="contained" sx={{ m: 9 }}>
+          Back
+        </Button>
+        <Button onClick={handleNext} variant="contained" sx={{ m: 9 }}>
+          Next
+        </Button>
       </Box>
-
-
     </div>
-  )
+  );
 }

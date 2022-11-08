@@ -2,8 +2,12 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import SearchField from './searchMovies';
+import { Button } from '@mui/material';
 
 export default function SimplePaper() {
+  function handleChange(e){
+    console.log(e.target.value);
+  }
   return (
     <Box
       sx={{
@@ -19,7 +23,6 @@ export default function SimplePaper() {
       }}
     >
       <Paper elevation={3} sx={{display: 'flex', justifyContent: "center"}}>
-        <SearchField sx={{mt: 5}} />
       </Paper>
     </Box>
   );
