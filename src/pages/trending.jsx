@@ -6,8 +6,6 @@ import MultiActionAreaCard from '../components/movieCard'
 import Head from 'next/head'
 
 function Trending(props) {
-    // const hod = "./hod.jpg"
-    // const title = "House of The Dragons"
 
     var [movies, setMovies] = useState([]);
     var [ind, setInd] = useState(1);

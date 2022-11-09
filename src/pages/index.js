@@ -65,7 +65,6 @@ export default function Home() {
   }, [ind]);
   
 
-  
 
   return (
     <div className={styles.container}>
@@ -85,9 +84,9 @@ export default function Home() {
           justifyContent: "center",
         }}
       >
-        <form>
-          <input onChange = {(e) => handleChange(e)} placeholder = "search movies..." style={{height: "25%", marginTop: "70px", width: "30vw", borderRadius: "20px", alignItems: "center"}} />
-          <Button onClick={(e)=>{handleClick(e)}} variant="contained" sx={{height: "25%", borderRadius: "20px", ml: "15px", }}>
+        <form >
+          <input onChange = {(e) => handleChange(e)} placeholder = "Search Movies..." style={{height: "25%", marginTop: "70px", width: "30vw", borderRadius: "20px", alignItems: "center", paddingLeft: "20px"}} />
+          <Button type="submit" onClick={(e)=>{handleClick(e)}} variant="contained" sx={{height: "25%", borderRadius: "20px", ml: "15px", }}>
             Search
           </Button>
         </form>
@@ -111,6 +110,7 @@ export default function Home() {
               pic={items.poster_path}
               release={items.release_date}
               rating={items.vote_average}
+              id = {items.id}
             />
           );
         })}
