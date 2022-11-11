@@ -15,7 +15,7 @@ export default function MultiActionAreaCard(props) {
       <CardActionArea>
         <CardMedia
           component="img"
-          height="450"
+          height="400"
           image={`https://image.tmdb.org/t/p/original/${props.pic}`}
           alt={props.title}
         />
