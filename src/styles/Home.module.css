@@ -108,12 +108,12 @@
   margin-left: 0.5rem;
 }
 
-@media (max-width: 600px) {
+/* @media (max-width: 600px) {
   .grid {
     width: 100%;
     flex-direction: column;
   }
-}
+} */
 
 @media (prefers-color-scheme: dark) {
   .card,
@@ -127,3 +127,24 @@
     filter: invert(1);
   }
 }
+
+#phone{
+  display: none;
+}
+
+@media screen and (max-width:769px){
+  #phone{
+    display: block;
+    /* background-color: black; */
+    height: 80%;
+    margin-top: 25px;
+    color: #FF731D;
+    font-weight: 900;
+    scale: 1.3;
+}
+#search-btn{
+  align-self: center;
+  display: none;
+}
+}
+

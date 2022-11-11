@@ -7,6 +7,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Navbar from "../components/navbar";
 import next from "next";
+import "../styles/Home.module.css"
 
 export default function Home() {
 
@@ -86,9 +87,10 @@ export default function Home() {
       >
         <form >
           <input onChange = {(e) => handleChange(e)} placeholder = "Search Movies..." style={{height: "25%", marginTop: "70px", width: "30vw", borderRadius: "20px", alignItems: "center", paddingLeft: "20px"}} />
-          <Button type="submit" onClick={(e)=>{handleClick(e)}} variant="contained" sx={{height: "25%", borderRadius: "20px", ml: "15px", }}>
+          <Button className="search-btn" type="submit" onClick={(e)=>{handleClick(e)}} variant="contained" sx={{height: "25%", borderRadius: "20px", ml: "15px"}}>
             Search
           </Button>
+          <i onClick={(e) => handleClick(e)} aria-hidden="true" className="fa fa-search" id="phone"></i>
         </form>
       </Box>
       <Box
@@ -123,13 +125,14 @@ export default function Home() {
           height: 150,
           width: "100%",
           backgroundImage: `url(./background.jpg)`,
-          justifyContent: "center",
+          justifyContent: "space-evenly",
+          alignItems: 'center'
         }}
       >
-        <Button onClick={handlePrev} variant="contained" sx={{ m: 9 }}>
+        <Button onClick={handlePrev} variant="contained" sx={{ height: "35px", width: "70px" }}>
           Back
         </Button>
-        <Button onClick={handleNext} variant="contained" sx={{ m: 9 }}>
+        <Button onClick={handleNext} variant="contained" sx={{ height: "35px", width: "70px" }}>
           Next
         </Button>
       </Box>
