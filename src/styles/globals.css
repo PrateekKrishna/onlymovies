@@ -5,6 +5,7 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background-color: #F7F7F7;
 }
 
 a {
@@ -98,14 +99,14 @@ a {
 }
 .goBack{
   height: 30px;
-  width: 80px;
+  width: 50px;
   background-color: white;
-  border-radius: 5px;
+  border-radius: 100%;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   align-items: center;
   display: flex;
   justify-content: center;
-  margin-top: -92vh;
+  /* margin-top: -92vh; */
   margin-left: 5px;
   cursor: pointer;
 }
@@ -122,10 +123,11 @@ a {
 .search-btn{
   height: 25%;
   width: 90px;
-  border-radius: 20px;
+  border-radius: 12px;
   border: 0px;
   margin-left: 15px;
-  background-color: aqua;
+  background-color: white;
+  color: black;
   cursor: pointer;
 }
 
@@ -225,7 +227,7 @@ a {
   }
   body {
     color: white;
-    background: #3C4048;
+    background: grey;
   }
 } */
 

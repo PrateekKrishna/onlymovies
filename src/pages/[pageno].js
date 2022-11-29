@@ -44,7 +44,7 @@ function More(props) {
           <link rel="icon" href="/favicon.ico" />
         </Head>
         {/* <Navbar className="dpnav" /> */}
-        <div className="goBack" onClick={() => router.back()} >←Back</div>
+        <div className="goBack" onClick={() => router.back()} >←</div>
         <img alt="poster" src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} className = "posterImg"></img>
           <div className="pics">
               <p className="fontColor movieTitle">{movie.title}</p>

@@ -107,10 +107,10 @@ function Trending(props) {
         })}
       </Box>
       <div style={{display: "flex", justifyContent: "flex-start", width: "100%", height: "80px", alignItems: "center", border: "2.5px solid black", borderRadius: "10px", marginTop: "20px", paddingLeft: "5vw", marginRight: "8vw"}}>
-        <Button onClick={handlePrev} variant="contained" sx={{ height: "35px", width: "70px", mr: "4vw" }}>
+        <Button onClick={handlePrev} variant="contained" sx={{ height: "35px", width: "70px", mr: "4vw", backgroundColor: "black" }}>
           Back
         </Button>
-        <Button onClick={handleNext} variant="contained" sx={{ height: "35px", width: "70px" }}>
+        <Button onClick={handleNext} variant="contained" sx={{ height: "35px", width: "70px", backgroundColor: "black" }}>
           Next
         </Button>
       </div>
