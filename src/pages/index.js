@@ -8,6 +8,7 @@ import Navbar from "../components/navbar";
 import next from "next";
 import "../styles/Home.module.css"
 import Footer from "../components/footer";
+import Image from "next/image";
 
 export default function Home() {
 
@@ -84,12 +85,15 @@ export default function Home() {
           justifyContent: "center",
         }}
       >
-        <form >
-          <input onChange = {(e) => handleChange(e)} placeholder = "Search Movies..." style={{height: "25%", marginTop: "70px", width: "30vw", borderRadius: "20px", alignItems: "center", paddingLeft: "20px"}} />
-          <Button className="search-btn" type="submit" onClick={(e)=>{handleClick(e)}} variant="contained" sx={{height: "25%", borderRadius: "20px", ml: "15px"}}>
+        <form className="searchForm">
+          <input className="searchInput" onChange = {(e) => handleChange(e)} placeholder = "Search Movies..." style={{}} />
+          <button className="search-btn" type="submit" onClick={(e)=>{handleClick(e)}} >
             Search
-          </Button>
-          <i onClick={(e) => handleClick(e)} aria-hidden="true" className="fa fa-search" id="phone"></i>
+          </button>
+          <div className="searchIcondiv" type="submit" onClick={(e)=>{handleClick(e)}}>
+            <Image className="searchIcon" alt="search" src = "/search.png" height={30} width={30} />
+          </div>
+          {/* <i onClick={(e) => handleClick(e)} aria-hidden="true" className="fa fa-search" id="phone"></i> */}
         </form>
       </Box>
       <Box
