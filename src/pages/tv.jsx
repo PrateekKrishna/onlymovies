@@ -4,6 +4,7 @@ import Navbar from '../components/navbar'
 import axios from 'axios';
 import MultiActionAreaCard from '../components/movieCard'
 import Head from 'next/head'
+import Footer from '../components/footer';
 
 
 function Trending(props) {
@@ -54,23 +55,16 @@ function Trending(props) {
           })
         }
       </Box>
-      <Box
-      sx={{
-        display: 'flex',
-        flexWrap: 'wrap',
-        height: 150,
-        width: "100%",
-        backgroundImage: `url(./background.jpg)`,
-        justifyContent: "center"
-      }}
-      >
-        <Button onClick={handlePrev} variant="contained" sx={{m: 9}}>
+      <div style={{display: "flex", justifyContent: "flex-start", width: "100%", height: "80px", alignItems: "center", border: "2.5px solid black", borderRadius: "10px", marginTop: "20px", paddingLeft: "5vw", marginRight: "8vw"}}>
+        <Button onClick={handlePrev} variant="contained" sx={{ height: "35px", width: "70px", mr: "4vw" }}>
           Back
         </Button>
-        <Button onClick={handleNext} variant="contained" sx={{m: 9}}>
+        <Button onClick={handleNext} variant="contained" sx={{ height: "35px", width: "70px" }}>
           Next
         </Button>
-      </Box>
+      </div>
+      {/* <div className="divider"></div> */}
+      <Footer />
     </>
   )
 }

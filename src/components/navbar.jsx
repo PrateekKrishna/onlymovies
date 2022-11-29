@@ -37,6 +37,13 @@ function Navbar(props) {
       <Divider />
       <List>
           <ListItem disablePadding>
+            <Link href={"/"}>
+              <ListItemButton sx={{ textAlign: 'center' }}>
+                <ListItemText primary="Popular" />
+              </ListItemButton>
+            </Link>
+          </ListItem>
+          <ListItem disablePadding>
             <Link href={"/trending"}>
               <ListItemButton sx={{ textAlign: 'center' }}>
                 <ListItemText primary="Trending" />
@@ -79,6 +86,11 @@ function Navbar(props) {
             </Link>
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+              <Button  sx={{ color: '#fff' }}>
+                <Link href={"/"}>
+                  Popular
+                </Link>
+              </Button>
               <Button  sx={{ color: '#fff' }}>
                 <Link href={"/trending"}>
                   Trending
